@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ultimate Tic-Tac-Toe with powerful AI">
+
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./js/game.js"></script>
+    <title>Ulitmate Tic-Tac-Toe</title>
+  </head>
+
+  <body>
+    <div id="container" hidden>
+      <header class="game-header">
+        <h1 class="game-title">Ultimate Tic-Tac-Toe</h1>
+        <div class="button-container">
+          <button class="btn game-btn" id="restart">Restart</button>
+          <button class="btn game-btn" id="settings">Settings</button>
+        </div>
+      </header>
+
+      <div class="game-container">
+        <div id="main-grid"></div>
+        <div id="end-message"></div>
+      </div>
+    </div>
+
+    <div id="settings-container" hidden>
+      <div class="settings-menu">
+        <h3 class="settings-title">Settings</h3>
+        <label class="settings-item">
+          Player X
+          <select id="settings-player-x" class="btn settings-btn">
+            <option value="human" selected>Human</option>
+            <option value="ai">AI</option>
+          </select>
+        </label>
+
+        <label class="settings-item">
+          Player O
+          <select id="settings-player-o" class="btn settings-btn">
+            <option value="human">Human</option>
+            <option value="ai" selected>AI</option>
+          </select>
+        </label>
+
+        <label class="settings-item">
+          AI strength
+          <div>
+            <input type="range" min="1" max="256" id="settings-ai">
+            <span id="settings-ai-display"></span>
+          </div>
+        </label>
+        
+        <div class="settings-btns">
+          <button class="btn settings-btn" id="settings-submit">Done</button>
+          <button class="btn settings-btn" id="settings-return">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

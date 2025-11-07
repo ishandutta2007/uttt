@@ -149,3 +149,62 @@ settingsReturn.addEventListener('click', () => settingsRoot.hidden = true)
 
 updateHTML()
 gameRoot.hidden = false
+
+
+
+
+
+let working = 0;
+let bestMove, bestResult;
+let startTime, totalMove;
+let githubModalShown = false;
+
+const githubModal = document.getElementById("github-modal");
+const githubModalOverlay = document.getElementById("github-modal-overlay");
+const closeGithubModalButton = document.getElementById("close-github-modal");
+
+function showGithubFollowPrompt() {
+  if (!githubModal || !githubModalOverlay || githubModalShown) return;
+  githubModal.classList.add("visible");
+  githubModalOverlay.classList.add("visible");
+  githubModal.setAttribute("aria-hidden", "false");
+  githubModalOverlay.setAttribute("aria-hidden", "false");
+  githubModalShown = true;
+}
+
+function hideGithubFollowPrompt() {
+  if (!githubModal || !githubModalOverlay) return;
+  githubModal.classList.remove("visible");
+  githubModalOverlay.classList.remove("visible");
+  githubModal.setAttribute("aria-hidden", "true");
+  githubModalOverlay.setAttribute("aria-hidden", "true");
+}
+
+if (closeGithubModalButton) {
+  closeGithubModalButton.addEventListener("click", hideGithubFollowPrompt);
+}
+
+if (githubModalOverlay) {
+  githubModalOverlay.addEventListener("click", hideGithubFollowPrompt);
+}
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    hideGithubFollowPrompt();
+  }
+});
+
+// Add GitHub follow prompt after the game's retry functionality
+const retryButton = document.querySelector('button#restart');
+console.log(retryButton);
+const originalClick = retryButton.onclick;
+retryButton.onclick = function(e) {
+  // Call the original handler first
+  if (originalClick) originalClick.call(this, e);
+  
+  // Then show GitHub prompt if the game was over
+  // if (game.over) {
+    // Small delay to ensure game has restarted
+    setTimeout(showGithubFollowPrompt, 50);
+  // }
+};

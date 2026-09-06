@@ -89,7 +89,11 @@ If you want to recompile the WASM modules, you will need:
 
 Run the `build.sh` script to compile everything. ⚙️
 
+##  Star History
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/uttt&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/uttt&type=date&legend=top-left)
+
 ## 📜 License
 
 This app is licensed under the [AGPL-3.0 license](LICENSE). 📄
+
 

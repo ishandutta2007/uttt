@@ -1,8 +1,13 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="Ultimate Tic-Tac-Toe Banner" width="100%" />
+</p>
+
 # Ultimate Tic-Tac-Toe
 
 A high performance Ultimate Tic-Tac-Toe engine in the browser.
 
 ![](logo.png)
+
 
 ## What is Ultimate Tic-Tac-Toe
 

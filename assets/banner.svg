@@ -1,0 +1,337 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0d12" />
+      <stop offset="50%" stop-color="#12141d" />
+      <stop offset="100%" stop-color="#181c2b" />
+    </linearGradient>
+
+    <!-- Blue Glow Gradient (X) -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+
+    <!-- Gold / Yellow Glow Gradient (O) -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe259" />
+      <stop offset="100%" stop-color="#ffa751" />
+    </linearGradient>
+
+    <!-- Text Gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e0e7ff" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Subtitle Gradient -->
+    <linearGradient id="subGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur2" />
+      <feComposite in="SourceGraphic" in2="blur2" operator="over" />
+    </filter>
+
+    <!-- Floating / Pulsing Animations -->
+    <style>
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.75; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.03); }
+      }
+      @keyframes floatBoard {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-7px) rotate(0.8deg); }
+      }
+      @keyframes dashMove {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: 40; }
+      }
+      @keyframes shimmer {
+        0% { opacity: 0.3; }
+        50% { opacity: 0.8; }
+        100% { opacity: 0.3; }
+      }
+      .floating-group {
+        transform-origin: 970px 180px;
+        animation: floatBoard 6s ease-in-out infinite;
+      }
+      .grid-line-glow {
+        animation: pulseGlow 4s ease-in-out infinite;
+      }
+      .pulse-x {
+        transform-origin: center;
+        animation: pulseGlow 3s ease-in-out infinite;
+      }
+      .pulse-o {
+        transform-origin: center;
+        animation: pulseGlow 3.5s ease-in-out infinite 0.5s;
+      }
+      .tag-pill {
+        transition: all 0.3s ease;
+      }
+      .star {
+        animation: shimmer 2.5s ease-in-out infinite alternate;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+
+  <!-- Subtle Board Grid Pattern in Background -->
+  <g opacity="0.07" stroke="#38bdf8" stroke-width="1.5">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="120" y1="0" x2="120" y2="360" />
+    <line x1="240" y1="0" x2="240" y2="360" />
+    <line x1="360" y1="0" x2="360" y2="360" />
+    <line x1="480" y1="0" x2="480" y2="360" />
+    <line x1="600" y1="0" x2="600" y2="360" />
+    <line x1="720" y1="0" x2="720" y2="360" />
+    <line x1="840" y1="0" x2="840" y2="360" />
+    <line x1="960" y1="0" x2="960" y2="360" />
+    <line x1="1080" y1="0" x2="1080" y2="360" />
+  </g>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="180" r="180" fill="#0284c7" opacity="0.12" filter="url(#softGlow)" />
+  <circle cx="980" cy="180" r="160" fill="#eab308" opacity="0.08" filter="url(#softGlow)" />
+  <circle cx="1020" cy="150" r="140" fill="#38bdf8" opacity="0.1" filter="url(#softGlow)" />
+
+  <!-- Shimmering Accent Stars -->
+  <circle cx="85" cy="65" r="2" fill="#38bdf8" class="star" style="animation-delay: 0s;" />
+  <circle cx="680" cy="45" r="2.5" fill="#facc15" class="star" style="animation-delay: 0.8s;" />
+  <circle cx="560" cy="315" r="2" fill="#38bdf8" class="star" style="animation-delay: 1.4s;" />
+  <circle cx="1120" cy="80" r="2" fill="#93c5fd" class="star" style="animation-delay: 0.4s;" />
+  <circle cx="1150" cy="290" r="1.5" fill="#fde047" class="star" style="animation-delay: 1.9s;" />
+
+  <!-- Animated Border Outline -->
+  <rect x="1" y="1" width="1198" height="358" rx="15" fill="none" stroke="url(#cyanGrad)" stroke-width="1.5" opacity="0.4" />
+
+  <!-- LEFT SECTION: Title, Subtitle, Badges -->
+  <g transform="translate(75, 0)">
+    <!-- Top badge: WebAssembly & MCTS Engine -->
+    <g transform="translate(0, 52)">
+      <rect width="265" height="30" rx="15" fill="#1e293b" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4" />
+      <circle cx="16" cy="15" r="5" fill="#00f2fe">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="30" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" letter-spacing="1.5">WASM &amp; MCTS ENGINE</text>
+    </g>
+
+    <!-- Main Heading -->
+    <text x="0" y="142" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Montserrat', sans-serif" font-size="52" font-weight="900" fill="url(#textGrad)" letter-spacing="-1">
+      Ultimate Tic-Tac-Toe
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="2" y="180" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18.5" font-weight="400" fill="url(#subGrad)">
+      A high-performance nested Tic-Tac-Toe engine running in the browser
+    </text>
+
+    <text x="2" y="208" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400" fill="#64748b">
+      Monte Carlo Tree Search · Bitboards · Root Parallelism · Custom Arena Allocator
+    </text>
+
+    <!-- Tech Feature Pills -->
+    <g transform="translate(0, 248)">
+      <!-- Pill 1: WebAssembly -->
+      <g class="tag-pill" transform="translate(0, 0)">
+        <rect width="118" height="34" rx="8" fill="#141c2e" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.5" />
+        <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#60a5fa">⚡ WebAssembly</text>
+      </g>
+
+      <!-- Pill 2: Plain C99 -->
+      <g class="tag-pill" transform="translate(128, 0)">
+        <rect width="96" height="34" rx="8" fill="#141c2e" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.5" />
+        <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#38bdf8">⚙️ Plain C99</text>
+      </g>
+
+      <!-- Pill 3: MCTS Millions Iterations -->
+      <g class="tag-pill" transform="translate(234, 0)">
+        <rect width="170" height="34" rx="8" fill="#141c2e" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.5" />
+        <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#fbbf24">🧠 Millions MCTS/sec</text>
+      </g>
+
+      <!-- Pill 4: Web Workers -->
+      <g class="tag-pill" transform="translate(414, 0)">
+        <rect width="138" height="34" rx="8" fill="#141c2e" stroke="#a855f7" stroke-width="1.2" stroke-opacity="0.5" />
+        <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#c084fc">🚀 Web Workers</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- RIGHT SECTION: Dynamic Interactive-looking Ultimate Tic-Tac-Toe Floating Board -->
+  <g class="floating-group">
+    <!-- Board Outer Glow Plate -->
+    <rect x="830" y="45" width="280" height="270" rx="20" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="2" />
+    <rect x="830" y="45" width="280" height="270" rx="20" fill="none" stroke="url(#cyanGrad)" stroke-width="2" opacity="0.3" filter="url(#glow)" />
+
+    <!-- Macro Board Grid Lines (Major 3x3) -->
+    <g stroke="#475569" stroke-width="4" stroke-linecap="round" class="grid-line-glow">
+      <line x1="923" y1="58" x2="923" y2="302" stroke="url(#cyanGrad)" stroke-opacity="0.8" />
+      <line x1="1017" y1="58" x2="1017" y2="302" stroke="url(#cyanGrad)" stroke-opacity="0.8" />
+      <line x1="843" y1="135" x2="1097" y2="135" stroke="url(#cyanGrad)" stroke-opacity="0.8" />
+      <line x1="843" y1="225" x2="1097" y2="225" stroke="url(#cyanGrad)" stroke-opacity="0.8" />
+    </g>
+
+    <!-- Micro Board (0,0): Top-Left -> Won by X -->
+    <g transform="translate(842, 55)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <g stroke="url(#cyanGrad)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" class="pulse-x">
+        <line x1="18" y1="18" x2="66" y2="62" />
+        <line x1="66" y1="18" x2="18" y2="62" />
+      </g>
+    </g>
+
+    <!-- Micro Board (1,0): Top-Middle -> Active Subgame with pieces -->
+    <g transform="translate(933, 55)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <!-- X at (0,0) -->
+      <g stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round">
+        <line x1="12" y1="14" x2="24" y2="26" />
+        <line x1="24" y1="14" x2="12" y2="26" />
+      </g>
+      <!-- O at (1,1) -->
+      <circle cx="42" cy="40" r="7" fill="none" stroke="#fbbf24" stroke-width="2.5" />
+      <!-- X at (2,2) -->
+      <g stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round">
+        <line x1="60" y1="54" x2="72" y2="66" />
+        <line x1="72" y1="54" x2="60" y2="66" />
+      </g>
+    </g>
+
+    <!-- Micro Board (2,0): Top-Right -> Won by O -->
+    <g transform="translate(1025, 55)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <circle cx="42" cy="40" r="26" fill="none" stroke="url(#goldGrad)" stroke-width="6" filter="url(#glow)" class="pulse-o" />
+    </g>
+
+    <!-- Micro Board (0,1): Middle-Left -> Pieces in play -->
+    <g transform="translate(842, 142)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <circle cx="18" cy="40" r="6" fill="none" stroke="#fbbf24" stroke-width="2.2" />
+      <g stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round">
+        <line x1="36" y1="54" x2="48" y2="66" />
+        <line x1="48" y1="54" x2="36" y2="66" />
+      </g>
+    </g>
+
+    <!-- Micro Board (1,1): Center Board -> Active Focus Target -->
+    <g transform="translate(933, 142)">
+      <rect x="5" y="6" width="74" height="68" rx="8" fill="#0284c7" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.5">
+        <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+      </rect>
+      <g stroke="#38bdf8" stroke-width="1.5" opacity="0.9">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <!-- Active center pieces -->
+      <g stroke="url(#cyanGrad)" stroke-width="2.5" stroke-linecap="round">
+        <line x1="36" y1="34" x2="48" y2="46" />
+        <line x1="48" y1="34" x2="36" y2="46" />
+      </g>
+      <circle cx="64" cy="20" r="6.5" fill="none" stroke="url(#goldGrad)" stroke-width="2.2" />
+      <g stroke="url(#cyanGrad)" stroke-width="2.2" stroke-linecap="round">
+        <line x1="12" y1="54" x2="24" y2="66" />
+        <line x1="24" y1="54" x2="12" y2="66" />
+      </g>
+      <!-- Pulsing target mark for next move -->
+      <circle cx="18" cy="20" r="4" fill="#38bdf8">
+        <animate attributeName="r" values="3;6;3" dur="1.5s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <!-- Micro Board (2,1): Middle-Right -->
+    <g transform="translate(1025, 142)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <circle cx="42" cy="40" r="6" fill="none" stroke="#fbbf24" stroke-width="2.2" />
+      <g stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round">
+        <line x1="60" y1="14" x2="72" y2="26" />
+        <line x1="72" y1="14" x2="60" y2="26" />
+      </g>
+    </g>
+
+    <!-- Micro Board (0,2): Bottom-Left -->
+    <g transform="translate(842, 230)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <circle cx="18" cy="20" r="6" fill="none" stroke="#fbbf24" stroke-width="2.2" />
+      <circle cx="64" cy="60" r="6" fill="none" stroke="#fbbf24" stroke-width="2.2" />
+    </g>
+
+    <!-- Micro Board (1,2): Bottom-Middle -->
+    <g transform="translate(933, 230)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <g stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round">
+        <line x1="36" y1="34" x2="48" y2="46" />
+        <line x1="48" y1="34" x2="36" y2="46" />
+      </g>
+    </g>
+
+    <!-- Micro Board (2,2): Bottom-Right -> Won by X -->
+    <g transform="translate(1025, 230)">
+      <g stroke="#334155" stroke-width="1.5" opacity="0.7">
+        <line x1="28" y1="10" x2="28" y2="70" />
+        <line x1="56" y1="10" x2="56" y2="70" />
+        <line x1="8" y1="30" x2="76" y2="30" />
+        <line x1="8" y1="50" x2="76" y2="50" />
+      </g>
+      <g stroke="url(#cyanGrad)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" class="pulse-x">
+        <line x1="18" y1="18" x2="66" y2="62" />
+        <line x1="66" y1="18" x2="18" y2="62" />
+      </g>
+    </g>
+  </g>
+</svg>
